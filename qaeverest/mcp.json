@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "qaeverest": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "qaeverest-mcp"],
+      "env": {
+        "QAEVEREST_API_KEY": "${QAEVEREST_API_KEY}",
+        "QAEVEREST_API_URL": "${QAEVEREST_API_URL}"
+      }
+    }
+  }
+}

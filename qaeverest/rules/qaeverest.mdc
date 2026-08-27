@@ -1,0 +1,34 @@
+---
+description: How to use the QAEverest MCP tools — which tool fits which testing request, what each call costs, and where generated tests belong.
+alwaysApply: false
+---
+
+# QAEverest
+
+The `qaeverest` MCP server generates QA test cases and runs security and performance checks against a running target. Reach for it when the user asks for **test cases**, a **test plan**, **API tests**, **UI or mobile automation scenarios**, a **security scan**, or a **load/performance test** — not for ordinary unit tests you can write directly in the repo.
+
+## Picking the tool
+
+| The user is asking for | Tool |
+|---|---|
+| Functional / system test cases from a story or requirement | `generate_testcases` |
+| API tests, or tests from an OpenAPI/Swagger spec or Postman collection | `generate_api_tests` |
+| End-to-end browser flows (navigate / click / type / assert) | `generate_ui_tests` |
+| Mobile app flows (gestures, device states, platform behaviour) | `generate_mobile_tests` |
+| Security headers, SSL/TLS, common vulnerabilities on a URL | `security_scan` |
+| Load, stress, spike or soak metrics for a URL | `performance_test` |
+| Credits left, requests this month, which services are enabled | `get_usage` |
+
+`generate_ui_tests` and `generate_mobile_tests` run as background jobs and can take a few minutes. All four `generate_*` tools produce test cases — none of them drives a live browser or device.
+
+## Working with the results
+
+- Pass `domain_name` and `module_name` when the repo makes them obvious; put focus areas, constraints and known edge cases in `additional`. Vague input produces vague coverage.
+- Generated scenarios come back as Gherkin. Save them under `qaeverest-tests/` as `.feature` files unless the repo already has a test layout — in which case follow it.
+- Offer to scaffold automation (Playwright, Cypress, RestAssured, …) from the scenarios once the user has picked the ones they want. Generate the test cases first; don't invent scenarios of your own and present them as QAEverest output.
+
+## Before you call
+
+- **Every generation, scan and performance run costs QAEverest credits.** Don't call a tool speculatively, and don't retry a failed call in a loop. If the user is exploring, run `get_usage` first.
+- **Only scan or load-test hosts the user is authorized to test.** Ask before pointing `security_scan` or `performance_test` at anything that isn't obviously the user's own environment; `performance_test` sends real traffic at the target.
+- If a tool reports its service is disabled, say so plainly — an admin enables it under **Admin → API Management**; retrying won't help.

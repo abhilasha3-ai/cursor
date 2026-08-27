@@ -1,0 +1,16 @@
+{
+  "name": "qaeverest",
+  "owner": {
+    "name": "QAEverest"
+  },
+  "metadata": {
+    "description": "QAEverest plugins for Cursor — AI test generation, security & performance checks."
+  },
+  "plugins": [
+    {
+      "name": "qaeverest",
+      "source": "./qaeverest",
+      "description": "Generate AI-powered functional, API, UI & mobile test cases and run security & performance checks against your app — without leaving Cursor. Wraps the QAEverest public API as MCP tools, with skills that tell the agent when to reach for them."
+    }
+  ]
+}

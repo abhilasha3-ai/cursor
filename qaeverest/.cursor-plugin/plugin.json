@@ -1,0 +1,53 @@
+{
+  "name": "qaeverest",
+  "displayName": "QAEverest",
+  "description": "Generate AI-powered functional, API, UI & mobile test cases and run security & performance checks against your app — without leaving Cursor. Wraps the QAEverest public API as MCP tools, with skills that tell the agent when to reach for them.",
+  "version": "1.0.0",
+  "author": {
+    "name": "QAEverest"
+  },
+  "publisher": "QAEverest",
+  "homepage": "https://qaeverest.ai",
+  "repository": "https://github.com/abhilasha3-ai/cursor",
+  "license": "MIT",
+  "logo": "assets/avatar.png",
+  "keywords": [
+    "testing",
+    "qa",
+    "test-cases",
+    "test-generation",
+    "api-testing",
+    "ui-automation",
+    "security",
+    "performance",
+    "mcp"
+  ],
+  "category": "developer-tools",
+  "tags": [
+    "testing",
+    "quality",
+    "automation",
+    "security",
+    "performance"
+  ],
+  "skills": "./skills/",
+  "rules": "./rules/",
+  "mcpServers": "./mcp.json",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "QAEVEREST_API_KEY": {
+        "type": "string",
+        "title": "QAEverest API key",
+        "description": "Your QAEverest API key (starts with qae_). Get one free at https://app.qaeverest.ai/api-client/signup, or from Admin → API Management in your QAEverest account."
+      },
+      "QAEVEREST_API_URL": {
+        "type": "string",
+        "title": "QAEverest API URL",
+        "description": "Backend base URL. Leave as the default unless you run a self-hosted or enterprise QAEverest instance.",
+        "default": "https://api.qaeverest.ai"
+      }
+    },
+    "required": ["QAEVEREST_API_KEY"]
+  }
+}
