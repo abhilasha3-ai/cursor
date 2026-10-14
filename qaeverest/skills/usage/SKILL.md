@@ -10,7 +10,7 @@ description: >-
 
 # QAEverest usage and entitlements
 
-Call `get_usage` and report, concisely:
+Call `qae_status` and report, concisely:
 
 - Credits used and remaining.
 - Requests this month, and the limit if there is one.

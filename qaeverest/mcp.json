@@ -3,10 +3,12 @@
     "qaeverest": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "qaeverest-mcp"],
+      "args": ["-y", "@qaeverestsupport.ai/qaeverest-mcp@^2"],
       "env": {
+        "QAEVEREST_CLIENT": "cursor-plugin",
         "QAEVEREST_API_KEY": "${QAEVEREST_API_KEY}",
-        "QAEVEREST_API_URL": "${QAEVEREST_API_URL}"
+        "QAEVEREST_API_URL": "${QAEVEREST_API_URL}",
+        "QAEVEREST_WORKSPACE": "${workspaceFolder}"
       }
     }
   }

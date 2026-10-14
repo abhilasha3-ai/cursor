@@ -21,18 +21,21 @@ description: >-
 
 | Source | Tool |
 |---|---|
-| Functional or system requirement | `generate_testcases` |
-| API description, OpenAPI/Swagger spec, or Postman collection | `generate_api_tests` |
-| Browser flow, end to end | `generate_ui_tests` |
-| Mobile app flow | `generate_mobile_tests` |
+| Functional, system, integration (SIT) or database requirement | `qae_generate_testcases` |
+| API description, OpenAPI/Swagger spec, or Postman collection | `qae_generate_api_tests` |
+| Browser flow, end to end | `qae_generate_ui_tests` |
+| Mobile app flow | `qae_generate_mobile_tests` |
 
-`generate_ui_tests` and `generate_mobile_tests` run as background jobs — tell the user it may take a few minutes rather than going quiet.
+`qae_generate_ui_tests` and `qae_generate_mobile_tests` run as background jobs — tell the user it may take a few minutes rather than going quiet.
+
+When the user wants tests for **this repo's code** rather than a story, ground them in it instead: `qae_build_inventory` ranks the testable features with the files each came from, and `qae_generate_from_features` generates from the ones they pick, reading those files as context. When the request is vague, or mixes generating with building or running a suite, hand it to `qae_chat` — the copilot works out what's needed and asks for what's missing.
 
 ## Fill the arguments properly
 
 - `domain_name` / `module_name` — infer from the repo (the service, package or feature folder the story belongs to) rather than leaving them empty.
 - `additional` — the constraints the story doesn't state: validation rules, error states, roles and permissions, rate limits, anything the user called out as risky.
-- `test_type` / `tc_type` on `generate_testcases` — `automated` when the user intends to automate these, `manual` when they're for a QA team to execute.
+- `test_type` on `qae_generate_testcases` — `Integration` for how services and third-party systems work together (SIT); `Database` for the database itself (schema, constraints, transactions, migrations) — name the tables and columns in `story`.
+- `tc_type` — `automated` when the user intends to automate these, `manual` when they're for a QA team to execute.
 
 ## Present and save
 
@@ -40,4 +43,4 @@ description: >-
 2. Offer to save. Default to `qaeverest-tests/<module>.feature` in Gherkin, unless the repo already has a test layout — then follow it.
 3. Offer to scaffold automation from the saved scenarios (Playwright, Cypress, RestAssured, Appium — whatever the repo already uses).
 
-Each call consumes QAEverest credits. Run `get_usage` first if the user wants to know their balance, and never retry a failed generation in a loop.
+Each call consumes QAEverest credits. Run `qae_status` first if the user wants to know their balance, and never retry a failed generation in a loop.

@@ -16,10 +16,10 @@ description: >-
 
 ## Run it
 
-Call `security_scan`:
+Call `qae_security_scan`:
 
 - `url` — the confirmed target.
-- `scanType` — `full` unless the user asked for only `headers`, `ssl`, or `vulnerability`.
+- `scan_type` — `full` unless the user asked for only `headers`, `ssl`, or `vulnerability`.
 - `method` / `headers` — pass an auth header when the endpoint needs one to return its real response; a scan of a login redirect tells you nothing about the app behind it.
 
 ## Report

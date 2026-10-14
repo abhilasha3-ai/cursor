@@ -7,7 +7,7 @@ checks, from inside Cursor's agent.
 | | |
 |---|---|
 | **Plugin** | [`qaeverest/`](qaeverest/) — see its [README](qaeverest/README.md) |
-| **Version** | 1.0.0 |
+| **Version** | 2.0.0 |
 | **License** | MIT |
 
 ## Install
@@ -30,7 +30,7 @@ Then run **Developer: Reload Window** in Cursor.
 ## What it needs
 
 Node.js 18+ (the plugin runs the MCP server via `npx`) and a QAEverest API key
-(`qae_…`) — [sign up free](https://app.qaeverest.ai/api-client/signup?source=cursor-plugin),
+(`qae_…`) — [sign up free](https://qaeverest.ai/api-client/signup?source=cursor-plugin),
 or take one from **Admin → API Management** in your QAEverest account. Your key
 is stored by Cursor and passed to the server at launch; it is never written into
 this repository.

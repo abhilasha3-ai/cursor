@@ -1,8 +1,8 @@
 {
   "name": "qaeverest",
   "displayName": "QAEverest",
-  "description": "Generate AI-powered functional, API, UI & mobile test cases and run security & performance checks against your app — without leaving Cursor. Wraps the QAEverest public API as MCP tools, with skills that tell the agent when to reach for them.",
-  "version": "1.0.0",
+  "description": "An AI QA copilot in Cursor's agent: generate functional, API, UI, mobile, integration and database test cases (from a story, a spec, or your own code), run automation suites, test AI agents, and run security and performance checks. The QAEverest MCP server as tools and prompts, with skills that tell the agent when to reach for them.",
+  "version": "2.0.0",
   "author": {
     "name": "QAEverest"
   },
@@ -39,7 +39,7 @@
       "QAEVEREST_API_KEY": {
         "type": "string",
         "title": "QAEverest API key",
-        "description": "Your QAEverest API key (starts with qae_). Get one free at https://app.qaeverest.ai/api-client/signup, or from Admin → API Management in your QAEverest account."
+        "description": "Your QAEverest API key (starts with qae_). Get one free at https://qaeverest.ai/api-client/signup, or from Admin → API Management in your QAEverest account."
       },
       "QAEVEREST_API_URL": {
         "type": "string",
